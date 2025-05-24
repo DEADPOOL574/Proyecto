@@ -1,0 +1,117 @@
+/* Estilos CSS para la página de Registro */
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f4f4f4; /* Un color de fondo suave */
+    margin: 0;
+    padding: 1rem; /* Añade un poco de padding para pantallas pequeñas */
+    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 400px; /* Ancho máximo para el contenedor principal */
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+.form-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.input-field {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 25px; /* Bordes redondeados como en la imagen */
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #007bff; /* Color de borde al enfocar */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra al enfocar */
+}
+
+.register-button {
+    background-color: #222; /* Color oscuro como en la imagen */
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 25px; /* Bordes redondeados como en la imagen */
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    margin-top: 1rem; /* Espacio superior */
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
+}
+
+.register-button:hover {
+    background-color: #444; /* Color más claro al pasar el ratón */
+}
+
+.login-link-text {
+    color: #555;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.login-link {
+    color: #007bff; /* Color azul para el enlace */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transición suave para el hover */
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 600px) {
+    .title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-card {
+        padding: 1.5rem;
+    }
+
+    .input-field,
+    .register-button {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+}
