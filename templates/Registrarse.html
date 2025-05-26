@@ -1,35 +1,44 @@
-
- <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../static/Registrarse.css">
-        <title>Registro</title>
-        </head>
-    <body>
-        <div class="container">
-            <h2 class="title">Registro</h2>
-            <div class="form-card">
-                <form>
-                    <div class="form-group">
-                        <input type="text" placeholder="Nombre" class="input-field" name="nombre">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Gmail" class="input-field" name="email">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" placeholder="Contraseña" class="input-field" name="password">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" placeholder="Confirmar contraseña" class="input-field" name="confirm_password">
-                    </div>
-                    <button type="submit" class="register-button">Registrarse</button>
-                </form>
-                <p class="login-link-text">
-                    ¿Ya tienes una cuenta? <a href="IniciarSesion.html" class="login-link">Iniciar sesión</a>
-                </p>
-            </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Registrarse.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Registro</h2>
+        <div class="form-card">
+            {# {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul class="flashes">
+                        {% for category, message in messages %}
+                            <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %} #}
+            <form action="/registrarse" method="POST">
+                <div class="form-group">
+                    <input type="text" placeholder="Nombre" class="input-field" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Gmail" class="input-field" name="gmail" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Contraseña" class="input-field" name="password" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Confirmar contraseña" class="input-field" name="confirm_password" required>
+                </div>
+                <button type="submit" class="register-button">Registrarse</button>
+            </form>
+            <p class="login-link-text">
+                ¿Ya tienes una cuenta? 
+                <a href="{{ url_for('iniciar_sesion') }}" class="login-link">Iniciar sesión</a>
+            </p>
         </div>
-    </body>
-    </html>
+    </div>
+</body>
+</html>

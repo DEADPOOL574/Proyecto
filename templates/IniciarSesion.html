@@ -4,49 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="../static/Estilo.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Estilo.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="login-container">
         <h2 class="login-title">Iniciar Sesión</h2>
-        <form>
+        {# {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %} #}
+        <form method="POST" action="{{ url_for('iniciar_sesion') }}">
             <div class="form-group">
-                <label for="username" class="form-label">Nombre de Usuario</label>
-                <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    class="form-input"
-                    placeholder="Ingresa tu nombre de usuario"
-                    aria-label="Nombre de usuario"
-                >
+                <label for="gmail" class="form-label">Email</label>
+                <input type="email" id="gmail" name="gmail" class="form-input" placeholder="Ingresa tu email" required>
             </div>
             <div class="form-group password">
                 <label for="password" class="form-label">Contraseña</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    class="form-input"
-                    placeholder="Ingresa tu contraseña"
-                    aria-label="Contraseña"
-                >
+                <input type="password" id="password" name="password" class="form-input" placeholder="Ingresa tu contraseña" required>
             </div>
-            <button
-                type="submit"
-                class="submit-button"
-            >
-                Entrar
-            </button>
-            <p class="text-link">
-                ¿Olvidaste tu contraseña?
-                <a href="RecuperarContra.html">Recuperar</a>
-            </p>
-            <p class="text-link register">
-                ¿No tienes una cuenta?
-                <a href="Registrarse.html">Regístrate</a>
-            </p>
+            <button type="submit" class="submit-button">Entrar</button>
+            <p class="text-link">¿Olvidaste tu contraseña? <a href="{{ url_for('recuperar_contra') }}">Recuperar</a></p>
+            <p class="text-link register">¿No tienes una cuenta? <a href="{{ url_for('registrarse') }}">Regístrate</a></p>
         </form>
     </div>
 </body>

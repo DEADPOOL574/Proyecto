@@ -3,16 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/RecuperarContra.css">
     <title>Recuperar Contraseña</title>
-    </head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='RecuperarContra.css') }}">
+</head>
 <body>
     <div class="container">
         <h2 class="title">Recuperar Contraseña</h2>
         <div class="form-card">
-            <input type="email" placeholder="Ingresa tu email" class="email-input">
-            <button class="send-button">Enviar Enlace</button>
-            <a href="IniciarSesion.html" class="back-link">Volver al Login</a>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul class="flashes">
+                        {% for category, message in messages %}
+                            <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <p class="instruction-text">Ingresa tu email para recibir un enlace de recuperación.</p>
+            <form action="{{ url_for('recuperar_contra') }}" method="POST">
+                <input type="email" placeholder="Ingresa tu email" class="input-field" name="email" required>
+                <button type="submit" class="submit-button">Enviar Enlace</button>
+            </form>
+            <div class="links">
+                <a href="{{ url_for('iniciar_sesion') }}" class="link">Volver al Login</a>
+            </div>
         </div>
     </div>
 </body>

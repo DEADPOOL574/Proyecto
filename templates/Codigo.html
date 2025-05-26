@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Restablecer contraseña</title>
+    <link rel="stylesheet" href="../static/Estilo.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h2>Restablecer contraseña</h2>
+        <form action="/restablecer" method="POST">
+            <input type="text" name="codigo" placeholder="Código recibido" required>
+            <input type="password" name="nueva_contrasenia" placeholder="Nueva contraseña" required>
+            <input type="password" name="confirmar_contrasenia" placeholder="Confirmar contraseña" required>
+            <button type="submit">Cambiar contraseña</button>
+        </form>
+    </div>
+</body>
+</html>
